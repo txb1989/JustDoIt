@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B51AACD-816E-432A-B3D3-8011D4BA698E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jst.Core</RootNamespace>
+    <AssemblyName>Jst.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy, Version=4.2.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy.4.2.1\lib\net45\Autofac.Extras.DynamicProxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.4.1.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.1.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\ApplicationServiceBase.cs" />
+    <Compile Include="Application\IApplicationService.cs" />
+    <Compile Include="AssemblyLoader.cs" />
+    <Compile Include="Attributes\RegisterAliasNameAttribute.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Extensions\TypeExtension.cs" />
+    <Compile Include="JstCoreModule.cs" />
+    <Compile Include="JstInterceptors\AopAttributes\UnitOfWorkAttribute.cs" />
+    <Compile Include="Cache\ICached.cs" />
+    <Compile Include="Cache\JstDefaultCached.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\IAggregateRoot.cs" />
+    <Compile Include="Entities\IAudit.cs" />
+    <Compile Include="Entities\ICreate.cs" />
+    <Compile Include="Entities\ISoftDeleted.cs" />
+    <Compile Include="Entities\IUpdate.cs" />
+    <Compile Include="Enums\AppEnums.cs" />
+    <Compile Include="Ioc\IIocRegistrar.cs" />
+    <Compile Include="Ioc\IIocResolver.cs" />
+    <Compile Include="Ioc\IocManager.cs" />
+    <Compile Include="Ioc\JstModuleInfo.cs" />
+    <Compile Include="IRepository\JstDefaultRepository.cs" />
+    <Compile Include="JsJsonResult\JstAjaxJsonResult.cs" />
+    <Compile Include="JstCoreInitialization.cs" />
+    <Compile Include="JstCoreRegister.cs" />
+    <Compile Include="JstException\EntityNotFoundException.cs" />
+    <Compile Include="JstException\JstCoreException.cs" />
+    <Compile Include="Ioc\IIocManager.cs" />
+    <Compile Include="Ioc\IJstAppModule.cs" />
+    <Compile Include="Ioc\ILiftStyle.cs" />
+    <Compile Include="Ioc\JstAppModule.cs" />
+    <Compile Include="IRepository\IRepository.cs" />
+    <Compile Include="JstInterceptors\BaseProcesser.cs" />
+    <Compile Include="JstInterceptors\InterruptException.cs" />
+    <Compile Include="JstInterceptors\IProcesser.cs" />
+    <Compile Include="JstInterceptors\JstCoreInterceptor.cs" />
+    <Compile Include="Log\IJstCoreLogs.cs" />
+    <Compile Include="Log\JstNullLogs.cs" />
+    <Compile Include="Premission\DefaultPremissionChecker.cs" />
+    <Compile Include="Premission\IPremission.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uow\DefaultUnitOfWork.cs" />
+    <Compile Include="Uow\IUniteOfWork.cs" />
+    <Compile Include="Uow\IUniteOfWorkManager.cs" />
+    <Compile Include="Uow\UniteOfWorkManager.cs" />
+    <Compile Include="Uow\UnitOfWorkOptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ObjectMapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Thinking_Of_UniteOfWork.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\00.Utils\Jst.Utils\Jst.Utils.csproj">
+      <Project>{4973a7cb-9646-43d6-9e1c-5b480da8667b}</Project>
+      <Name>Jst.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

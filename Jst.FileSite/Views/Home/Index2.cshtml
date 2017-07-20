@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+@section css{
+
+}
+<div id="app">
+    <!-- 3. my-component只能在#app下使用-->
+    <parent></parent>
+</div>
+@section js{
+    <script type="text/template">
+        <p></p>
+    </script>
+    <script type="text/javascript" src="~/js/libs/vue/vue.js"></script>
+    <script type="text/javascript">
+  
+        var child = Vue.extend({
+            template: "Children Component"
+        });
+        var parent = Vue.extend({
+            template: "<p>Parent Component</p><cc></cc>",
+            components: {
+                "cc":child
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            components: {
+                // 2. 将myComponent组件注册到Vue实例下
+                'parent': parent
+            }
+        });
+    </script>
+
+}
+
+
